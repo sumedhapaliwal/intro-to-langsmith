@@ -26,3 +26,9 @@ $ python3 -m venv intro-to-ls
 $ source intro-to-ls/bin/activate
 $ pip install -r requirements.txt
 ```
+
+### Self-Hosted LangSmith
+Note: If you are using a self-hosted version of LangSmith, you'll need to set this environment variable in addition to the others - see this [guide](https://docs.smith.langchain.com/self_hosting/usage) for more info
+```
+LANGSMITH_ENDPOINT = "<your-self-hosted-url>/api/v1"
+```
