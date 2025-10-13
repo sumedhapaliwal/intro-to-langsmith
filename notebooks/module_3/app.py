@@ -3,14 +3,13 @@ import tempfile
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders.sitemap import SitemapLoader
 from langchain_community.vectorstores import SKLearnVectorStore
-from langchain_openai import OpenAIEmbeddings
+from langchain_mistralai import ChatMistralAI, MistralAIEmbeddings
 from langsmith import traceable
-from openai import OpenAI
 from typing import List
 import nest_asyncio
 
-MODEL_NAME = "gpt-4o-mini"
-MODEL_PROVIDER = "openai"
+MODEL_NAME = "mistral-large-latest"
+MODEL_PROVIDER = "mistral"
 APP_VERSION = 1.0
 RAG_SYSTEM_PROMPT = """You are an assistant for question-answering tasks. 
 Use the following pieces of retrieved context to answer the latest question in the conversation. 
@@ -18,11 +17,11 @@ If you don't know the answer, just say that you don't know.
 Use three sentences maximum and keep the answer concise.
 """
 
-openai_client = OpenAI()
+mistral_client = ChatMistralAI(model=MODEL_NAME)
 
 def get_vector_db_retriever():
     persist_path = os.path.join(tempfile.gettempdir(), "union.parquet")
-    embd = OpenAIEmbeddings()
+    embd = MistralAIEmbeddings(model="mistral-embed")
 
     # If vector store exists, then load it
     if os.path.exists(persist_path):
@@ -64,7 +63,7 @@ def retrieve_documents(question: str):
 
 """
 generate_response
-- Calls `call_openai` to generate a model response after formatting inputs
+- Calls `call_mistral` to generate a model response after formatting inputs
 """
 @traceable(run_type="chain")
 def generate_response(question: str, documents):
@@ -79,11 +78,11 @@ def generate_response(question: str, documents):
             "content": f"Context: {formatted_docs} \n\n Question: {question}"
         }
     ]
-    return call_openai(messages)
+    return call_mistral(messages)
 
 """
-call_openai
-- Returns the chat completion output from OpenAI
+call_mistral
+- Returns the chat completion output from Mistral AI
 """
 @traceable(
     run_type="llm",
@@ -92,11 +91,18 @@ call_openai
         "ls_model_name": MODEL_NAME
     }
 )
-def call_openai(messages: List[dict]) -> str:
-    return openai_client.chat.completions.create(
-        model=MODEL_NAME,
-        messages=messages,
-    )
+def call_mistral(messages: List[dict]) -> str:
+    from langchain_core.messages import HumanMessage, SystemMessage
+    
+    # Convert dict messages to LangChain message objects
+    langchain_messages = []
+    for msg in messages:
+        if msg["role"] == "system":
+            langchain_messages.append(SystemMessage(content=msg["content"]))
+        elif msg["role"] == "user":
+            langchain_messages.append(HumanMessage(content=msg["content"]))
+    
+    return mistral_client.invoke(langchain_messages)
 
 """
 langsmith_rag
@@ -108,4 +114,5 @@ langsmith_rag
 def langsmith_rag(question: str):
     documents = retrieve_documents(question)
     response = generate_response(question, documents)
-    return response.choices[0].message.content
+    return response.content
+    return response.content
