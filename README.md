@@ -151,4 +151,6 @@
    - We can run our model in both streaming and nonstreaming way. Streaming way is when the models uses every output token as its input for the next token prediction.
    - Output schema and "tools" can help us have opiniated response formats.
 
-
+2. Code Tweaks
+   - Changed the sample questions.
+   - Added script to test the creation of the langsmith client handling the prompts. <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/e8aa2147-6d0e-4fd1-a2c2-8e9fda8a982d" />
