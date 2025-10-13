@@ -178,3 +178,10 @@
    - Migrated entire RAG from OpenAI to Mistral AI including embeddings and chat model.
    - Personalized the input prompts for personalized outputs and learn, 
    - Fixed message format conversion for Mistral AI with LangChain compatibility.
+
+### Lesson 4: Prompt Canvas
+1. Video Learning
+   - Instead of manually tweaking and testing prompts, we can craft them using specific agents.
+   - "Diff View" helps you see the changes in the prompt due to current iteration.
+   - We can also create "Quick Actions" to act on the new prompt and apply some transformations such as, say, "Fix Grammar".
+   ### i cant test it cause it uses open ai's key which is paid and thus is inaccessible to me, I use Mistral!
