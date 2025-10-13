@@ -141,4 +141,14 @@
    - Different langsmith features for prompt engineering and iteration
    - Langsmith playground helps to test different prompts under different inputs to the model.
    - Prompt hub allows us to keep, orgranize, version and improve prompts in a safe unified place.
+  
+### Lession 1: Playground
+1. Video Learning
+   - Basic template with `question` as a variable and chaining outputs to test for different outputs at different points.<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/7c51c157-569a-4f7d-bb74-8a3cd9d876a0" />
+   - Changing the system prompt allows the llm to take different roles as per say, its response differs with changing system prompt. <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/927ba1ec-1e12-4171-ad73-69d741531f67" />
+   - We can customize the models as per our needs. I have used Mistral AI's model under the default config.
+   - We can also compare different models under the same prompts for better results.
+   - We can run our model in both streaming and nonstreaming way. Streaming way is when the models uses every output token as its input for the next token prediction.
+   - Output schema and "tools" can help us have opiniated response formats.
+
 
