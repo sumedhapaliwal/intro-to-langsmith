@@ -167,3 +167,19 @@
    - Personalized the prompts and uploaded them to the langsmith web app, from the app and sdk both.
 
 
+### Lession 3: Prompt Engineering Lifecycle
+1. Video Learning
+   - Complete lifecycle includes tracing apps, creating datasets, evaluating with prompt hub integration.
+   - Tracing helps us see how RAG performs with real queries and find bottlenecks.
+   - Datasets are crucial for systematic evaluation - built physics dataset with speed of light, Newton's laws, quantum mechanics questions.
+   - Connecting to Prompt Hub lets us iterate seamlessly - test in playground, save to hub, pull directly into code.
+   - Moving from manual prompt tweaking to systematic, data-driven improvement approach.
+   - Update prompts without code changes - just pull latest version from hub.
+
+2. Code Tweaks
+   - Migrated entire RAG from OpenAI to Mistral AI including embeddings and chat model.
+   - Built physics-focused dataset with fundamental concepts and specialized questions.
+   - Created RAG pipeline with Prompt Hub integration and fallback error handling.
+   - Added traceable functions for monitoring entire pipeline components.
+   - Updated prompts to be physics-expert focused instead of general Q&A.
+   - Fixed message format conversion for Mistral AI with LangChain compatibility.
