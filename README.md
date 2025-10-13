@@ -154,3 +154,12 @@
 2. Code Tweaks
    - Changed the sample questions.
    - Added script to test the creation of the langsmith client handling the prompts. <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/e8aa2147-6d0e-4fd1-a2c2-8e9fda8a982d" />
+
+### Lession 2: Prompt Hub
+1. Video Learning
+   - We can store and fork our prompts in Prompt Hub. <img width="1919" height="522" alt="image" src="https://github.com/user-attachments/assets/075cd77b-516a-4a93-8f5e-2f5e29089a14" />
+   - Updating a prompt also works in Prompt Hub. It commits and stores the changes and give us a git like version control. <img width="1919" height="511" alt="image" src="https://github.com/user-attachments/assets/8d37fd9b-1b05-4fe8-86bb-32b0e7fd26c7" />
+   - Using the python SDK, we can directly import these prompts to our code (also their specific version using commit hash) and work around them in our codebase.
+   - We can also upload new prompts directly from the code using the SDK.
+
+
