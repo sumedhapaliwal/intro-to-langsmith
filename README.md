@@ -131,3 +131,14 @@
 - **Full Stack Usage**: Utilized tracing, datasets, evaluators, and experiments comprehensively
 - **Advanced Features**: Implemented pairwise comparisons and conversational threading
 - **Best Practices**: Established proper naming, organization, and metadata management patterns
+
+## Module 3 - Prompt Engineering
+
+### Introduction
+1. Video Learning
+   - Prompts play a very important role in the context of LLMs.
+   - Quality of a prompt is directly proportional to the quality of the response.
+   - Different langsmith features for prompt engineering and iteration
+   - Langsmith playground helps to test different prompts under different inputs to the model.
+   - Prompt hub allows us to keep, orgranize, version and improve prompts in a safe unified place.
+
