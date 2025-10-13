@@ -161,5 +161,9 @@
    - Updating a prompt also works in Prompt Hub. It commits and stores the changes and give us a git like version control. <img width="1919" height="511" alt="image" src="https://github.com/user-attachments/assets/8d37fd9b-1b05-4fe8-86bb-32b0e7fd26c7" />
    - Using the python SDK, we can directly import these prompts to our code (also their specific version using commit hash) and work around them in our codebase.
    - We can also upload new prompts directly from the code using the SDK.
+  
+2. Code Tweaks
+   - Changed the model to use Mistral AI instead of Open AI.
+   - Personalized the prompts and uploaded them to the langsmith web app, from the app and sdk both.
 
 
